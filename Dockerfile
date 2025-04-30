@@ -25,6 +25,12 @@ RUN chown -R elasticsearch:elasticsearch /usr/share/elasticsearch/plugins && \
 # 验证插件安装
 USER elasticsearch
 RUN elasticsearch-plugin list
+# 设置环境变量
+ENV discovery.type=single-node
+# 暴露端口
+EXPOSE 9200 9300
+# 启动 Elasticsearch
+CMD ["elasticsearch"]
 
 
 # FROM elasticsearch:7.4.2
