@@ -10,10 +10,11 @@ RUN cd /etc/yum.repos.d/ && \
     ls -l plugin.zip && \
     unzip -d ik plugin.zip && \
     rm -f plugin.zip && \
-    yum clean all && \
-    chown -R elasticsearch:elasticsearch /usr/share/elasticsearch/plugins/ik && \
+    yum clean all 
+RUN chown -R elasticsearch:elasticsearch /usr/share/elasticsearch/plugins/ik && \
     chmod -R 755 /usr/share/elasticsearch/plugins/ik && \
-    ls -la /usr/share/elasticsearch/plugins/ik
+    ls -la /usr/share/elasticsearch/plugins/ik    
+
 # 添加验证步骤
 RUN elasticsearch-plugin list
 
